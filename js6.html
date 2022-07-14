@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Javascript 2일차 함수 + return 함수 응용</title>
+<script src="http://192.168.100.204:8080/html2/js6.js"></script>
+<script>
+
+function return1(k) {//getter, 해당 함수값을 받는 역할(상대방이 보낸 통신값)
+	var msg;
+	console.log(k);
+	if(k%2==0){
+		msg="짝수 입니다."
+	}else{
+		msg="홀수 입니다."
+	}
+	return msg;//결과를 상대방 서버에 재 호출
+}
+call1();//상대방 서버에 있는 함수 호출
+
+var data=[1,2,3,4,5];	//숫자배열
+console.log(data[0]);	//배열[인덱스번호]
+var data2=["홍길동","이순신","강감찬"];	//문자배열
+//console.log(data2[1]);
+var ea = data2.length;
+var w=0;
+while(w<ea){
+	console.log(data2[w]);
+	w++;
+}
+
+/*
+ * 응용문제 해당 함수들을 이용하여 결과값을 return받는 코드 작성
+ 	숫자 20과 30을 함수로 전달
+ 	결과값 출력 600이 출력
+ */
+ 
+ var a=20;
+ var b=30;
+ 
+ function set(n1,n2){
+	 var res=calc(n1,n2);
+	 //console.log(res);
+ }
+ function calc(nn1,nn2) {
+	var r = nn1*nn2;
+	return r;
+}
+set(a,b);
+</script>
+</head>
+<body>
+
+</body>
+</html>
