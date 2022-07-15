@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-compatible" content="ie=edge, chrome=1">
+<title>Javascript 3일차 HTML + Javascript 1</title>
+<script>
+//function (일반함수,리턴함수,이벤트 핸들링함수)
+function abc() {	//이벤트 핸들링함수
+	/*
+	//html에 id값을 가져와서 js변수로 이관함
+	var id = document.getElementById("mid");//여기서 바로 .value 비추(같은거 계속 써야해서..)
+	console.log(id.value);//사용자가 입력한 값 받음, 해당 id값을 가져오는 역할
+	id.readOnly=true;//readOnly : 읽기 전용
+	*/
+	var id = document.getElementById("mid");
+	var pw = document.getElementById("mpass");
+	if(id.value==""){	//해당 id값이 비어있을 때(사용자가 입력 안했을 때)
+		alert("아이디를 입력하세요.");	//alert : 경고문구
+		id.focus();	//focus() : 커서를 해당 오브젝트에 적용할 때 사용
+	}else if(pw.value==""){
+		alert("패스워드를 입력하세요.");
+		pw.focus();
+	}else{
+		//var f = document.getElementById("frm");	
+		//f.submit();	//form id 사용
+		
+		frm.submit();	//form name사용
+		
+		//submit() : method + action 발동시키는 함수
+	}
+		
+}
+</script>
+</head>
+<body>
+<form id="frm" name="frm" method="post" action="http://naver.com">
+<input type="text" id="mid" name="mid">
+<!-- <input type="text" id="mid"> 아이딘느 중복되면 안됨.. 처음꺼만 값가져올 수 있게 됨-->
+<input type="password" id="mpass" name="mpass">
+<input type="button" value="확인" onclick="abc()">
+</form>
+<!-- 
+onclick속성(button)
+onclick 사용 안하는 속성 - submit, reset
+ -->
+</body>
+</html>

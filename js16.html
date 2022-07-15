@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-compatible" content="ie=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="http://192.168.100.203:8080/jsp1/name.js"></script>
+<script src="http://192.168.100.204:8080/html2/js16.js"></script>
+<title>간편회원가입</title>
+<script>
+
+
+function btnclick() {
+	
+	var se = document.getElementById("se");
+	var intext = document.getElementById("intext");
+	
+	console.log("intext: "+intext.value)
+	if(se.value=="" || intext.value==""){
+		alert("검색할 파트와 검색할 단어를 입력 하셔야 합니다");
+		
+	}else{		
+		//frm.submit();	//form name사용		
+		
+		if(se.value=="name"){
+			searchname(intext.value);
+		}else if(se.value=="id"){
+			console.log("iddd");
+			searchid(intext.value);
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+
+
+<select name="" id="se">
+	<option value="">[검색할 파트]</option>
+	<option value="name">이름</option>
+	<option value="id">아이디</option>
+</select>
+<input type="text" id="intext">
+<input type="button" id="btn" value="고객검색" onclick="btnclick();">
+
+</body>
+</html>
