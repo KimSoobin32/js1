@@ -1,0 +1,169 @@
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+<title>사이트 전체 레이아웃</title>
+<style>
+/* base code */
+body{margin:0; padding:0;}
+span{display: block;}
+ul,ol{list-style: none; margin:0; padding: 0;}
+/* base code 따로 분리*/
+
+.top{width: 1200px; height: 40px; background-color: #ccc; margin:0 auto;}
+/*센터 맞추기 : margin:0 auto(static, relative), 단 position : absolute 면 안먹음..
+position : absolute 에 margin:0 auto; (x)
+*/
+.top_span{ height: 40px; }
+
+.top_ol{height: 40px; width:300px; float:right;
+position: relative;
+ }
+.top_li{width:75px; height: 40px; text-align: center; line-height: 40px; float:left;
+font-size: 12px; }
+
+.banner{
+	width: 1200px; height: 400px; background-color: royalblue; margin: 0 auto;
+    position: relative; 
+    text-align: center; /*자식 태그가 inline, inline-block일 경우 text-align:center로 화면 가운데로 정렬 가능, marginleft,right auto와 함께 사용해야 함*/
+    }
+
+.disc{
+	width: 15px; height: 15px; background-color: black; float: left;
+    border-radius: 15px; margin-left: 10px;
+    }
+.nomargin{margin-left:0;}
+
+.red{background-color: red;}
+/*margin-left: auto, margin-right: auto - 부모 태그 가로 기준으로 왼쪽과 오른쪽을 동일한 사이즈를 계산하여 적용하는 방식
+단, position이 relative 또는 static일 경우만 사용 됨
+*/
+.disc_span{height: 15px; 
+	display: inline-block; 
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	top:360px;
+	}
+	/*디스크가 몇개가 되든 유동성 있게..*/
+/*margin: 0 auto를 사용할 수 있는 경우
+1. position: absolute; 아닐 때
+2. width값이 무조건 있어야 가능함
+
+*/
+/*inline-block, inline : span에 주로 사용하는 속성
+inline : 자동 사이즈로 조절이 되나, 줄바꿈을 하지 못함, (width,height 가 적용은 되나 line-height가 적용이 안됨- 높이 인식 못함, 텍스트일 경우는 모두 안됨)
+inline-block : 자동사이즈로 조절이 되나 줄바꿈을 하지 못함 (span 안 텍스트든 오브젝트 든 width,height, leine-height 적용이 됨)
+*/ 
+/*display: inline-block - span에 사용(안에 컨텐츠에 딱맞게 박스잡힘 ), div에 하면 width 100% 적용되서 성격이 다름..*/
+
+/*
+.red{background-color: red; margin-left:45%;}
+.disc_span{
+	width:100%;
+	position: absolute;
+	bottom:25px;
+}
+*/
+
+/*width 강제 설정하면 안됨!! 디스크 늘어나면 계속 수정해줘야하기 때문에.. */
+/*float 쓸 때는 width , height 지정해줘야 함!!*/
+
+/* 메뉴파트 */
+.menu{
+   width:1200px;
+   height: 65px;
+   margin:0 auto; background-color: skyblue;
+   padding-top: 15px;
+   position: relative;
+}
+
+.logo{
+    width: 240px;
+    height: 50px;
+    background-color:green;
+    position: absolute;
+	left:15px;
+}
+
+.main_menu{
+    width: 600px;
+    height: 50px;
+    background-color: purple;
+    position: absolute;
+    right:15px;
+}
+
+/*.ulcss{width:1200px; height: 800px; background-color: #ccc; margin: 0 auto;}
+.licss{width:250px; height: 300px; background-color: black; float: left; margin-left:40px; margin-top:40px;}*/
+
+.product{width:1160px; height: auto; margin: 0 auto; padding:20px,20px,0,20px;}
+.product_ul{width: 1160px; height: auto;}
+.licss{width:250px; height: 300px; background-color: gray; float: left; margin: 20px;}
+
+
+
+.copyright{width: 1200px; height: 100px; background-color: green; 
+	margin: 0 auto; clear:both; color:white; text-align: center;
+	}
+</style>
+</head>
+<body>
+<!-- 최상단(로그인~고객센터) -->
+<div class ="top">
+<span class ="top_span">
+<ol class="top_ol">
+	<li class="top_li">HOME</li>
+	<li class="top_li">LOGIN</li>
+	<li class="top_li">MEMBER</li>
+	<li class="top_li">CUSTOMER</li>
+
+</ol>
+
+</span>
+</div>
+<!-- 상단 메뉴 파트 -->
+
+    <div class="menu">
+        <span class="logo"></span>
+        <span class="main_menu"></span>
+    </div>
+
+<!-- 배너 파트 -->
+
+<div class="banner">
+	<span class="disc_span">
+		<div class="disc nomargin red"></div>
+		<div class="disc"></div>
+		<div class="disc"></div>
+		<div class="disc"></div>
+		<div class="disc"></div>
+	</span>
+</div>
+
+<!-- 상품출력 파트 -->
+<!-- 여백 공간 코드 작성 시 좌우 픽셀을 합친다는 생각으로 퍼블리싱 해야 함 (여백40->좌우 각20)-->
+<div class="product">
+	<ul class="product_ul">
+		<li class="licss"></li>
+		<li class="licss"></li>
+		<li class="licss"></li>
+		<li class="licss"></li>
+		<li class="licss"></li>
+		<li class="licss"></li>
+		<li class="licss"></li>
+		<li class="licss"></li>
+		<li class="licss"></li>
+		<li class="licss"></li>
+	</ul>
+</div>
+
+<!-- 카피라이터 파트 142-81-38153-->
+<div class="copyright">
+	<span>Copyright ⓒ 1999~2022 Naver Corp. All Rights reserved.</span><!-- 1999~2022년부터 저작권 발의 (범위 안-저작권)-->
+	<span>회사명, 대표자명, 사업자등록번호, 통신판매번호 <a href="https://ftc.go.kr/bizCommPop.do?wrkr_no=1428138153" target="_blank">[사업자등록확인]</a></span>
+	<span>대표전화, 개인정보담당자명, 대표메일, 주소</span>
+</div>
+
+</body>
+</html>

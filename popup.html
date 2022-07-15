@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-compatible" content="ie=edge, chrome=1">
+<title>팝업창 = js14.html</title>
+<script>
+function popclose() {
+	self.close();	//자신의 창을 강제 종료 시킬 때 사용
+}
+function abc(addr) {
+	//alert(addr);
+	
+	//window.opener : 부모창을 지칭하게 됨
+	window.opener.document.getElementById("address").value = addr;
+	self.close();
+}
+</script>
+</head>
+<body>
+<a href="javascript:void abc('서울 마포구 신촌로');">서울 마포구 신촌로</a><br>	<!-- 메소드 호출, void 안쓰면 사파리에서 작동 안함 -->
+<a href="javascript:void abc('서울 영등포구 신촌로');">서울 영등포구 신촌로</a><br>
+<a href="javascript:void abc('서울 금천구 신촌로');">서울 금천구 신촌로</a><br>
+<input type="button" value="창닫기" onclick="popclose();">
+</body>
+</html>
+
